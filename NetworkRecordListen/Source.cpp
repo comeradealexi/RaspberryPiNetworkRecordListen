@@ -50,6 +50,11 @@ void TestHasher()
 int main()
 {
 	Log::Get() << "Starting Network Record Listen";
+
+	//On the RPI, at shutdown the time is saved so on boot, the clocks briefly appear to be the same as what is was when shutdown but if connected to the internet the time will abruptly update!
+	Log::Get() << "Sleeping for 5 seconds to give time for clocks to synchronise...";
+	std::this_thread::sleep_for(seconds(5));
+	Log::Get() << "Sleep complete.";
 	
 	static constexpr const std::chrono::minutes k_statusUpdateInterval = duration_cast<minutes>(hours(6));
 	static constexpr const std::chrono::minutes k_MaxRecordTime = minutes(30);

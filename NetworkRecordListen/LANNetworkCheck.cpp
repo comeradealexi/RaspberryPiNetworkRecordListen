@@ -38,7 +38,7 @@ void LANNetworkCheck::Update()
 	{
 		std::thread thr([this]()
 		{
-			std::array<char, k_TmpBufferSize> buffer;
+			std::array<char, k_TmpBufferSize> buffer; 
 			while (m_killThread == false)
 			{
 				auto tpStart = system_clock::now();

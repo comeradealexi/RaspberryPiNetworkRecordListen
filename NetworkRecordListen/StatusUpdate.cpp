@@ -23,11 +23,15 @@ void StatusUpdate::Update(bool bValidIPConnected)
 
 	if (m_bIsWorking == false)
 	{
-		auto timeSpan = std::chrono::system_clock::now() - m_lastTime;
+		auto timenow = std::chrono::system_clock::now();
+		auto timeSpan = timenow - m_lastTime;
 
 		if (timeSpan > m_updateInterval)
 		{
-			Log::Get() << "Begining Status Update Send";
+			Log::Get() << "Begining Status Update Send.";
+			Log::Get() << "Time Now  = " << Log::ToString(timenow);
+			Log::Get() << "Time Last = " << Log::ToString(m_lastTime);
+
 			m_bIsWorking = true;
 			std::thread thrd([this]
 			{

@@ -42,7 +42,7 @@ void TestHasher()
 	cTest = "4";
 	printf("%s = %u\n", cTest, RaspberryPi::VideoSurveillance::CreatePacketHash(cTest, strlen(cTest) ));
 	cTest = "  ";
-	printf("%s = %u\n", cTest, RaspberryPi::VideoSurveillance::CreatePacketHash(cTest, strlen(cTest) ));
+	printf("%s = %u\n", cTest, RaspberryPi::VideoSurveillance::CreatePacketHash(cTest, strlen(cTest) )); 
 	cTest = "    ";
 	printf("%s = %u\n", cTest, RaspberryPi::VideoSurveillance::CreatePacketHash(cTest, strlen(cTest) ));
 }
